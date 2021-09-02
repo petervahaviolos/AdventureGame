@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Characters/Enemies/EnemyStateMachine.gd" type="Script" id=5]
+[ext_resource path="res://Characters/Enemies/Enemy.gd" type="Script" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [  ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 40.0
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 19
+script = ExtResource( 6 )
+max_speed = 1000
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="ChaseArea" type="Area2D" parent="."]
+position = Vector2( 0, -0.297302 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea"]
+shape = SubResource( 2 )
+
+[node name="EnemyState" type="Label" parent="."]
+visible = false
+margin_left = -0.420441
+margin_top = -21.4429
+margin_right = 39.5796
+margin_bottom = -7.44286
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IdleTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[connection signal="body_entered" from="ChaseArea" to="." method="_on_ChaseArea_body_entered"]
+[connection signal="body_exited" from="ChaseArea" to="." method="_on_ChaseArea_body_exited"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]

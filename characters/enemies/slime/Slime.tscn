@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://characters/enemies/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/enemies/slime/animations/Slimeidle.tres" type="Animation" id=2]
+[ext_resource path="res://characters/enemies/slime/animations/Slimedeath.tres" type="Animation" id=3]
+[ext_resource path="res://characters/enemies/slime/sprite/SlimeSprites.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://characters/enemies/slime/animations/Slimerun.tres" type="Animation" id=5]
+[ext_resource path="res://characters/enemies/slime/animations/Slimehit.tres" type="Animation" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 5.0
+
+[node name="Slime" instance=ExtResource( 1 )]
+collision_layer = 0
+collision_mask = 17
+damage = 10
+
+[node name="Collider" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
+frames = ExtResource( 4 )
+animation = "idle"
+
+[node name="AnimationPlayer" parent="." index="2"]
+anims/death = ExtResource( 3 )
+anims/hit = ExtResource( 6 )
+anims/idle = ExtResource( 2 )
+anims/run = ExtResource( 5 )
+
+[node name="HitBox" parent="." index="7"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource( 2 )

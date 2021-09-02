@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Tilesets/Overworld_Tileset.png" type="Texture" id=1]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 144, 32, 48 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 6.12502
+
+[node name="Tree" type="StaticBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 1 )
+offset = Vector2( 0, -10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.125, 1.51325 )
+shape = SubResource( 2 )

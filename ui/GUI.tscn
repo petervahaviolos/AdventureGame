@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/Props_Items_(animated)/crystal_item_anim_strip_6.png" type="Texture" id=1]
+[ext_resource path="res://assets/Hud_Ui/health_hud.png" type="Texture" id=2]
+[ext_resource path="res://assets/Hud_Ui/health_bar_hud.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/Abaddon Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/items/Item__00.png" type="Texture" id=5]
+[ext_resource path="res://assets/Hud_Ui/item_box_hud.png" type="Texture" id=6]
+[ext_resource path="res://ui/GUI.gd" type="Script" id=7]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 36, 0, 8, 8 )
+margin = Rect2( 0, 2, 0, 0 )
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 1
+outline_color = Color( 0.207843, 0.2, 0.2, 1 )
+extra_spacing_char = 4
+font_data = ExtResource( 4 )
+
+[node name="GUI" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Top" type="MarginContainer" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 18.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Top"]
+margin_right = 1024.0
+margin_bottom = 18.0
+
+[node name="Item" type="TextureRect" parent="VBoxContainer/Top/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 18.0
+texture = ExtResource( 6 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Top/HBoxContainer/Item"]
+margin_left = 0.0132446
+margin_top = 0.311039
+margin_right = 16.0132
+margin_bottom = 16.311
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gems" type="HBoxContainer" parent="VBoxContainer/Top/HBoxContainer"]
+margin_left = 20.0
+margin_right = 72.0
+margin_bottom = 18.0
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Top/HBoxContainer/Gems"]
+margin_right = 8.0
+margin_bottom = 18.0
+texture = SubResource( 1 )
+
+[node name="Number" type="Label" parent="VBoxContainer/Top/HBoxContainer/Gems"]
+margin_left = 12.0
+margin_right = 52.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+text = "0000"
+
+[node name="Bottom" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 22.0
+margin_right = 1024.0
+margin_bottom = 38.0
+
+[node name="Guage" type="TextureProgress" parent="VBoxContainer/Bottom"]
+margin_right = 1024.0
+margin_bottom = 16.0
+min_value = 28.0
+max_value = 128.0
+value = 128.0
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 2 )

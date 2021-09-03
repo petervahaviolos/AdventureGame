@@ -32,40 +32,40 @@ region = Rect2( 64, 0, 16, 16 )
 atlas = ExtResource( 1 )
 region = Rect2( 80, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
 region = Rect2( 16, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
 region = Rect2( 32, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
 region = Rect2( 48, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
 region = Rect2( 64, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=16]
+[sub_resource type="SpriteFrames" id=13]
 animations = [ {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
 "name": "collected",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=14]
 resource_name = "collect"
 length = 0.8
 step = 0.01
@@ -108,7 +108,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=15]
 resource_name = "idle"
 length = 0.8
 loop = true
@@ -138,7 +138,9 @@ tracks/1/keys = {
 "values": [ 1, 5 ]
 }
 
-[node name="Coin" type="Area2D"]
+[node name="Coin" type="Area2D" groups=[
+"Persist",
+]]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource( 3 )
@@ -147,10 +149,10 @@ script = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 16 )
+frames = SubResource( 13 )
 frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/collect = SubResource( 24 )
-anims/idle = SubResource( 23 )
+anims/collect = SubResource( 14 )
+anims/idle = SubResource( 15 )
 [connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]

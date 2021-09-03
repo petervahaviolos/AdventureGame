@@ -4,29 +4,31 @@
 [ext_resource path="res://assets/Hud_Ui/pipo_ui_artdeco_pack2/UIartdeco_PIPO_pack2_green.png" type="Texture" id=2]
 [ext_resource path="res://assets/Hud_Ui/textures/ButtonTexture.tres" type="StyleBox" id=3]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 size = 30
 outline_color = Color( 0.984314, 0.984314, 0.984314, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
 region = Rect2( 420, 28, 112, 24 )
 
-[sub_resource type="StyleBoxTexture" id=6]
+[sub_resource type="StyleBoxTexture" id=3]
 content_margin_left = 20.0
 content_margin_right = 20.0
 content_margin_top = 20.0
 content_margin_bottom = 20.0
-texture = SubResource( 1 )
+texture = SubResource( 2 )
+region_rect = Rect2( 0, 0, 112, 24 )
 modulate_color = Color( 0.639216, 0.639216, 0.639216, 1 )
 
-[sub_resource type="StyleBoxTexture" id=7]
+[sub_resource type="StyleBoxTexture" id=4]
 content_margin_left = 20.0
 content_margin_right = 20.0
 content_margin_top = 20.0
 content_margin_bottom = 20.0
-texture = SubResource( 1 )
+texture = SubResource( 2 )
+region_rect = Rect2( 0, 0, 112, 24 )
 modulate_color = Color( 0, 0, 0, 1 )
 
 [resource]
@@ -35,9 +37,9 @@ Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
 Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 Button/constants/hseparation = 2
-Button/fonts/font = SubResource( 5 )
+Button/fonts/font = SubResource( 1 )
 Button/styles/disabled = null
 Button/styles/focus = null
-Button/styles/hover = SubResource( 6 )
+Button/styles/hover = SubResource( 3 )
 Button/styles/normal = ExtResource( 3 )
-Button/styles/pressed = SubResource( 7 )
+Button/styles/pressed = SubResource( 4 )

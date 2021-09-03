@@ -12,3 +12,4 @@ content_margin_right = 20.0
 content_margin_top = 20.0
 content_margin_bottom = 20.0
 texture = SubResource( 1 )
+region_rect = Rect2( 0, 0, 112, 24 )

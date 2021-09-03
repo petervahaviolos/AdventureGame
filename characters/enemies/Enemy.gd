@@ -8,10 +8,13 @@ var is_hit = false
 
 export var damage = 0
 
+onready var hitbox_collider = $HitBox/Collider
+onready var enemy_collider = $Collider
 onready var animation_player = $AnimationPlayer
 onready var enemy_state_label = $EnemyState
 onready var idle_timer = $IdleTimer
 onready var coin = preload("res://objects/collectables/Coin.tscn")
+onready var state_machine = $StateMachine
 
 export var max_speed = 200
 export (NodePath) var patrol_path
@@ -50,6 +53,24 @@ func move_toward_player():
 func take_damage(p_damage):
 	health -= p_damage
 	is_hit = true
+
+
+func save():
+	var save_data = {
+		"name": get_name(),
+		"filename": get_filename(),
+		"health": health,
+		"parent": get_parent().get_path(),
+		"position": get_position(),
+		"state": state_machine.state
+	}
+	return save_data
+
+
+func load(data):
+	health = data.get("health")
+	position = data.get("position")
+	state_machine.set_state(data.get("state"))
 
 
 func _on_ChaseArea_body_entered(body):

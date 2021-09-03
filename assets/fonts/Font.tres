@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/fonts/Abaddon Bold.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 90
+size = 50
 outline_size = 7
 outline_color = Color( 0.203922, 0.192157, 0.192157, 1 )
 font_data = ExtResource( 1 )

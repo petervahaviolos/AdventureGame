@@ -19,7 +19,9 @@ outline_color = Color( 0.207843, 0.2, 0.2, 1 )
 extra_spacing_char = 4
 font_data = ExtResource( 4 )
 
-[node name="GUI" type="MarginContainer"]
+[node name="GUI" type="MarginContainer" groups=[
+"Persist",
+]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 7 )

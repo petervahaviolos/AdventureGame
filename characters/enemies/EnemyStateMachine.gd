@@ -37,12 +37,12 @@ func _get_transition(_delta):
 				if parent.player == null:
 					return states.patrol
 		states.hurt:
-			if not parent.animation_player.is_playing():
-				parent.get_node("Collider").set_disabled(false)
-				parent.is_hit = false
-				return states.chase
 			if parent.health <= 0:
 				return states.death
+			if not parent.animation_player.is_playing():
+				parent.enemy_collider.set_disabled(false)
+				parent.is_hit = false
+				return states.chase
 		states.death:
 			if not parent.animation_player.is_playing():
 				var coin_spawn = parent.coin.instance()
@@ -61,10 +61,11 @@ func _enter_state(new_state, _old_state):
 			parent.enemy_state_label.set_text("patrol")
 			parent.animation_player.play("run")
 		states.hurt:
-			parent.get_node("Collider").set_disabled(true)
+			parent.enemy_collider.set_disabled(true)
 			parent.enemy_state_label.set_text("hurt")
 			parent.animation_player.play("hit")
 		states.death:
+			parent.hitbox_collider.set_disabled(true)
 			parent.enemy_state_label.set_text("death")
 			parent.animation_player.play("death")
 		states.chase:

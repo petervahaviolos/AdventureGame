@@ -21,6 +21,7 @@ onready var hit_timer = $HitTimer
 onready var melee_collider = get_node("MeleePivot").get_child(0).get_child(0)
 onready var player_collider = $Collider
 onready var player_sprite = $PlayerSprites
+onready var state_machine = $StateMachine
 
 
 func _ready():
@@ -55,3 +56,21 @@ func take_damage(damage):
 	is_hit = true
 	health -= damage
 	emit_signal("damage_taken", damage)
+
+
+func save():
+	var save_data = {
+		"name": get_name(),
+		"filename": get_filename(),
+		"health": health,
+		"parent": get_parent().get_path(),
+		"position": get_position(),
+		"state": state_machine.state
+	}
+	return save_data
+
+
+func load(data):
+	health = data.get("health")
+	position = data.get("position")
+	state_machine.set_state(data.get("state"))

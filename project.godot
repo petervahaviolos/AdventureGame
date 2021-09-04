@@ -37,6 +37,7 @@ DataManager="*res://singletons/DataManager.gd"
 [display]
 
 window/dpi/allow_hidpi=true
+window/vsync/use_vsync=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

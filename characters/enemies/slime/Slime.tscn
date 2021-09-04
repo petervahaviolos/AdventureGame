@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://characters/enemies/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/slime/animations/Slimeidle.tres" type="Animation" id=2]
@@ -9,6 +9,9 @@
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 3.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 5.0
 
 [node name="Slime" instance=ExtResource( 1 )]
 collision_layer = 0
@@ -31,3 +34,6 @@ anims/run = ExtResource( 5 )
 [node name="HitBox" parent="." index="7"]
 collision_layer = 4
 collision_mask = 2
+
+[node name="Collider" parent="HitBox" index="0"]
+shape = SubResource( 2 )

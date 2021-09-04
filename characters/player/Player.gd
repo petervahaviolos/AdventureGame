@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 signal coin_collected
-signal damage_taken(damage)
+signal health_updated(new_health)
 
 var health = 100
 var velocity = Vector2.ZERO
@@ -55,7 +55,7 @@ func get_blend_position(animation_name):
 func take_damage(damage):
 	is_hit = true
 	health -= damage
-	emit_signal("damage_taken", damage)
+	emit_signal("health_updated", health)
 
 
 func save():

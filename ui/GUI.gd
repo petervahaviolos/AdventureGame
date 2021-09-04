@@ -8,8 +8,10 @@ onready var health_bar = get_node("VBoxContainer/Bottom/Guage")
 
 
 func _ready():
+	var player_health = $"../../YSort/Player".health
+	health_bar.set_value(player_health + 28)
 	get_node("../../YSort/Player").connect("coin_collected", self, "_on_Player_coin_collected")
-	get_node("../../YSort/Player").connect("damage_taken", self, "_on_Player_damage_taken")
+	get_node("../../YSort/Player").connect("health_updated", self, "_on_Player_health_updated")
 
 
 func _on_Player_coin_collected():
@@ -22,8 +24,8 @@ func update_score_label():
 	score_label.set_text(score_string)
 
 
-func _on_Player_damage_taken(damage):
-	health_bar.set_value(health_bar.get_value() - damage * 0.72)
+func _on_Player_health_updated(health):
+	health_bar.set_value(health + 28)
 
 
 func save():

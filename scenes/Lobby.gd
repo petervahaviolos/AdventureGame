@@ -42,6 +42,9 @@ func leave_lobby():
 
 func get_lobby_members():
 	Global.LOBBY_MEMBERS.clear()
+	for i in range(1,3):
+		var player_panel = players.get_node("Player" + str(i) + "Panel")
+		player_panel.set_visible(false)
 	var MEMBER_COUNT = Steam.getNumLobbyMembers(Global.LOBBY_ID)
 
 	for member in range(MEMBER_COUNT):
@@ -50,7 +53,7 @@ func get_lobby_members():
 		add_player(member, MEMBER_STEAM_ID, MEMBER_STEAM_NAME)
 
 func add_player(player_number, steam_id, steam_name):
-	Global.LOBBY_MEMBERS.append({"steam_id": steam_id, "steam_name": steam_name})
+	Global.LOBBY_MEMBERS.append({"steam_id": steam_id, "steam_name": steam_name, "player_number": player_number})
 	var player_panel = players.get_node("Player" + str(player_number+1) + "Panel")
 	player_panel.set_visible(true)
 	player_panel.get_node("NameLabel").set_text(steam_name)

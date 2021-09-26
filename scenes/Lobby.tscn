@@ -1,0 +1,322 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://assets/Char_Sprites/char_run_down_anim_strip_6.png" type="Texture" id=1]
+[ext_resource path="res://assets/Char_Sprites/char_idle_down_anim_strip_6.png" type="Texture" id=2]
+[ext_resource path="res://assets/Hud_Ui/Theme.tres" type="Theme" id=3]
+[ext_resource path="res://scenes/Lobby.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 1 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "ready",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxFlat" id=15]
+
+[node name="Lobby" type="Control"]
+theme = ExtResource( 3 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -3.56763
+margin_top = 1.18921
+margin_right = 1019.43
+margin_bottom = 602.189
+color = Color( 0.133333, 0.133333, 0.133333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+margin_right = 1023.0
+margin_bottom = 602.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LobbyParts" type="VBoxContainer" parent="Margin"]
+margin_right = 1023.0
+margin_bottom = 602.0
+
+[node name="Top" type="HBoxContainer" parent="Margin/LobbyParts"]
+margin_right = 1023.0
+margin_bottom = 85.0
+custom_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/LobbyParts/Top"]
+margin_right = 557.0
+margin_bottom = 85.0
+custom_constants/margin_top = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/LobbyParts/Top/MarginContainer"]
+margin_top = 10.0
+margin_right = 557.0
+margin_bottom = 85.0
+custom_constants/margin_left = 425
+
+[node name="LobbyNameLabel" type="Label" parent="Margin/LobbyParts/Top/MarginContainer/MarginContainer"]
+margin_left = 425.0
+margin_top = 23.0
+margin_right = 557.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+text = "Lobby Name"
+align = 1
+valign = 1
+
+[node name="LeaveButton" type="Button" parent="Margin/LobbyParts/Top/MarginContainer"]
+margin_top = 10.0
+margin_right = 111.0
+margin_bottom = 85.0
+size_flags_horizontal = 0
+text = "Leave"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Middle" type="MarginContainer" parent="Margin/LobbyParts"]
+margin_top = 89.0
+margin_right = 1023.0
+margin_bottom = 474.0
+custom_constants/margin_right = 35
+custom_constants/margin_top = 35
+custom_constants/margin_left = 35
+custom_constants/margin_bottom = 350
+
+[node name="Players" type="HBoxContainer" parent="Margin/LobbyParts/Middle"]
+margin_left = 35.0
+margin_top = 35.0
+margin_right = 988.0
+margin_bottom = 35.0
+custom_constants/separation = 225
+
+[node name="Player1Panel" type="Panel" parent="Margin/LobbyParts/Middle/Players"]
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="Margin/LobbyParts/Middle/Players/Player1Panel"]
+margin_left = 37.0412
+margin_top = 10.1022
+margin_right = 188.041
+margin_bottom = 39.1022
+text = "Player 1 Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Margin/LobbyParts/Middle/Players/Player1Panel"]
+position = Vector2( 112.246, 133.573 )
+scale = Vector2( 8.57662, 8.57662 )
+frames = SubResource( 14 )
+frame = 1
+speed_scale = 2.0
+playing = true
+
+[node name="ReadyLabel" type="Label" parent="Margin/LobbyParts/Middle/Players/Player1Panel"]
+margin_left = 55.9028
+margin_top = 265.535
+margin_right = 183.903
+margin_bottom = 298.535
+custom_colors/font_color = Color( 0.996078, 0, 0, 1 )
+text = "Not Ready"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player2Panel" type="Panel" parent="Margin/LobbyParts/Middle/Players"]
+visible = false
+margin_left = 225.0
+margin_right = 225.0
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="Margin/LobbyParts/Middle/Players/Player2Panel"]
+margin_left = 37.0412
+margin_top = 10.1022
+margin_right = 188.041
+margin_bottom = 39.1022
+text = "Player 2 Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Margin/LobbyParts/Middle/Players/Player2Panel"]
+position = Vector2( 112.246, 134.762 )
+scale = Vector2( 8.57662, 8.57662 )
+frames = SubResource( 14 )
+frame = 3
+speed_scale = 2.0
+playing = true
+
+[node name="ReadyLabel" type="Label" parent="Margin/LobbyParts/Middle/Players/Player2Panel"]
+margin_left = 55.9028
+margin_top = 265.535
+margin_right = 183.903
+margin_bottom = 298.535
+custom_colors/font_color = Color( 0.996078, 0, 0, 1 )
+text = "Not Ready"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player3Panel" type="Panel" parent="Margin/LobbyParts/Middle/Players"]
+visible = false
+margin_left = 450.0
+margin_right = 450.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="Margin/LobbyParts/Middle/Players/Player3Panel"]
+margin_left = 37.0412
+margin_top = 10.1022
+margin_right = 188.041
+margin_bottom = 39.1022
+text = "Player 3 Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Margin/LobbyParts/Middle/Players/Player3Panel"]
+position = Vector2( 112.246, 133.573 )
+scale = Vector2( 8.57662, 8.57662 )
+frames = SubResource( 14 )
+frame = 2
+speed_scale = 2.0
+playing = true
+
+[node name="ReadyLabel" type="Label" parent="Margin/LobbyParts/Middle/Players/Player3Panel"]
+margin_left = 55.9028
+margin_top = 265.535
+margin_right = 183.903
+margin_bottom = 298.535
+custom_colors/font_color = Color( 0.996078, 0, 0, 1 )
+text = "Not Ready"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player4Panel" type="Panel" parent="Margin/LobbyParts/Middle/Players"]
+visible = false
+margin_left = 225.0
+margin_right = 225.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="Margin/LobbyParts/Middle/Players/Player4Panel"]
+margin_left = 37.0412
+margin_top = 10.1022
+margin_right = 188.041
+margin_bottom = 39.1022
+text = "Player 4 Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Margin/LobbyParts/Middle/Players/Player4Panel"]
+position = Vector2( 112.246, 133.573 )
+scale = Vector2( 8.57662, 8.57662 )
+frames = SubResource( 14 )
+frame = 1
+speed_scale = 2.0
+playing = true
+
+[node name="ReadyLabel" type="Label" parent="Margin/LobbyParts/Middle/Players/Player4Panel"]
+margin_left = 55.9028
+margin_top = 265.535
+margin_right = 183.903
+margin_bottom = 298.535
+custom_colors/font_color = Color( 0.996078, 0, 0, 1 )
+text = "Not Ready"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bottom" type="HBoxContainer" parent="Margin/LobbyParts"]
+margin_top = 478.0
+margin_right = 1023.0
+margin_bottom = 553.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="Margin/LobbyParts/Bottom"]
+margin_right = 1016.0
+margin_bottom = 75.0
+custom_constants/margin_right = 400
+custom_constants/margin_left = 430
+
+[node name="StartButton" type="Button" parent="Margin/LobbyParts/Bottom/MarginContainer2"]
+margin_left = 430.0
+margin_right = 616.0
+margin_bottom = 75.0
+text = "Start Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Margin/LobbyParts/Top/MarginContainer/LeaveButton" to="." method="_on_LeaveButton_pressed"]

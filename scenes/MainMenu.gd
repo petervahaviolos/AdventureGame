@@ -8,7 +8,8 @@ func _ready():
 
 
 func _on_NewGame_pressed():
-	scene_manager.load_level("DebugMap.tscn")
+	scene_manager.load_scene("Lobby.tscn")
+	scene_manager.get_node("Lobby").create_lobby()
 	queue_free()
 
 

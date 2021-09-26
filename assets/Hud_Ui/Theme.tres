@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=2]
+[gd_resource type="Theme" load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/Abaddon Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/Hud_Ui/pipo_ui_artdeco_pack2/UIartdeco_PIPO_pack2_green.png" type="Texture" id=2]
@@ -31,7 +31,13 @@ texture = SubResource( 2 )
 region_rect = Rect2( 0, 0, 112, 24 )
 modulate_color = Color( 0, 0, 0, 1 )
 
+[sub_resource type="DynamicFont" id=5]
+size = 25
+outline_color = Color( 0.203922, 0.192157, 0.192157, 1 )
+font_data = ExtResource( 1 )
+
 [resource]
+default_font = SubResource( 5 )
 Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )

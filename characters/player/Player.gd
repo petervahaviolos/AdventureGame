@@ -26,6 +26,7 @@ onready var state_machine = $StateMachine
 
 func _ready():
 	add_to_group("players")
+	$UsernameLabel.set_text(Global.STEAM_USERNAME)
 
 
 func _on_MeleeArea_body_entered(body):

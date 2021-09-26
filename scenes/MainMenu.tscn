@@ -76,13 +76,13 @@ size_flags_vertical = 0
 [node name="NewGame" type="Button" parent="Margin/Level 1/Margin/Level 2/MainButtons"]
 margin_right = 376.0
 margin_bottom = 75.0
-text = "New Game"
+text = "Create Game"
 
 [node name="LoadGame" type="Button" parent="Margin/Level 1/Margin/Level 2/MainButtons"]
 margin_top = 79.0
 margin_right = 376.0
 margin_bottom = 154.0
-text = "Load Game"
+text = "Join Game"
 
 [node name="SecondaryButtons" type="HBoxContainer" parent="Margin/Level 1/Margin/Level 2"]
 margin_top = 225.0
@@ -110,5 +110,6 @@ text = "Quit"
 visible = false
 margin_right = 1176.0
 margin_bottom = 601.0
+
 [connection signal="pressed" from="Margin/Level 1/Margin/Level 2/MainButtons/NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="pressed" from="Margin/Level 1/Margin/Level 2/MainButtons/LoadGame" to="." method="_on_LoadGame_pressed"]

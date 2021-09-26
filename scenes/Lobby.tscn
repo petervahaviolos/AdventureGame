@@ -170,7 +170,7 @@ __meta__ = {
 position = Vector2( 112.246, 133.573 )
 scale = Vector2( 8.57662, 8.57662 )
 frames = SubResource( 14 )
-frame = 1
+frame = 3
 speed_scale = 2.0
 playing = true
 
@@ -208,7 +208,7 @@ __meta__ = {
 position = Vector2( 112.246, 134.762 )
 scale = Vector2( 8.57662, 8.57662 )
 frames = SubResource( 14 )
-frame = 3
+frame = 5
 speed_scale = 2.0
 playing = true
 
@@ -246,7 +246,7 @@ __meta__ = {
 position = Vector2( 112.246, 133.573 )
 scale = Vector2( 8.57662, 8.57662 )
 frames = SubResource( 14 )
-frame = 2
+frame = 4
 speed_scale = 2.0
 playing = true
 
@@ -284,7 +284,7 @@ __meta__ = {
 position = Vector2( 112.246, 133.573 )
 scale = Vector2( 8.57662, 8.57662 )
 frames = SubResource( 14 )
-frame = 1
+frame = 3
 speed_scale = 2.0
 playing = true
 
@@ -320,3 +320,4 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="Margin/LobbyParts/Top/MarginContainer/LeaveButton" to="." method="_on_LeaveButton_pressed"]
+[connection signal="pressed" from="Margin/LobbyParts/Bottom/MarginContainer2/StartButton" to="." method="_on_StartButton_pressed"]

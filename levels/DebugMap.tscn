@@ -1,18 +1,20 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Models/House_Red.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Models/Tree.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Models/House_Blue.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://models/House_Red.tscn" type="PackedScene" id=2]
+[ext_resource path="res://models/Tree.tscn" type="PackedScene" id=3]
+[ext_resource path="res://models/House_Blue.tscn" type="PackedScene" id=4]
 [ext_resource path="res://characters/enemies/slime/Slime.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Tiles_(animated)/Overworld/tileset.tres" type="TileSet" id=6]
+[ext_resource path="res://assets/Tiles_(animated)/Overworld/tileset.tres" type="TileSet" id=6]
 [ext_resource path="res://ui/GUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://objects/collectables/Coin.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ui/PauseMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://levels/DebugMap.gd" type="Script" id=10]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
 [node name="DebugMap" type="Node2D"]
+script = ExtResource( 10 )
 
 [node name="Grass" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )
@@ -57,7 +59,7 @@ __meta__ = {
 position = Vector2( 352, 96 )
 
 [node name="PlayerSprites" parent="YSort/Player" index="1"]
-frame = 1
+frame = 2
 
 [node name="Animator" parent="YSort/Player" index="3"]
 parameters/playback = SubResource( 1 )

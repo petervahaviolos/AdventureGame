@@ -1,9 +1,9 @@
 [gd_resource type="SpriteFrames" load_steps=29 format=2]
 
-[ext_resource path="res://Assets/Enemies_Sprites/Pinkslime_Sprites/pinkslime_idle_anim_all_dir_strip_6.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Enemies_Sprites/Pinkslime_Sprites/pinkslime_run_anim_anim_all_dir_strip_6.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Enemies_Sprites/Pinkslime_Sprites/pinkslime_death_anim_all_dir_strip_8.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Enemies_Sprites/Pinkslime_Sprites/pinkslime_hit_anim_all_dir_strip_4.png" type="Texture" id=4]
+[ext_resource path="res://assets/Enemies_Sprites/Pinkslime_Sprites/pinkslime_idle_anim_all_dir_strip_6.png" type="Texture" id=1]
+[ext_resource path="res://assets/Enemies_Sprites/Pinkslime_Sprites/pinkslime_run_anim_anim_all_dir_strip_6.png" type="Texture" id=2]
+[ext_resource path="res://assets/Enemies_Sprites/Pinkslime_Sprites/pinkslime_death_anim_all_dir_strip_8.png" type="Texture" id=3]
+[ext_resource path="res://assets/Enemies_Sprites/Pinkslime_Sprites/pinkslime_hit_anim_all_dir_strip_4.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )

@@ -15,5 +15,5 @@ func _on_NewGame_pressed():
 
 func _on_LoadGame_pressed():
 	scene_manager.load_level("DebugMap.tscn")
-	DataManager.load_game()
+	#DataManager.load_game()
 	queue_free()

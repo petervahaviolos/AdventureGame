@@ -18,7 +18,14 @@ func _state_logic(_delta):
 
 
 func _get_transition(_delta):
-	pass
+	match state:
+		states.attack:
+			if parent.attack_timer.is_stopped():
+				return states.idle
+		states.hit:
+			if parent.hit_timer.is_stopped():
+				return states.idle
+
 
 
 func _enter_state(new_state, _old_state):
@@ -41,5 +48,9 @@ func _enter_state(new_state, _old_state):
 			parent.animator.travel("hit")
 
 
-func _exit_state(_old_state, _new_state):
-	pass
+func _exit_state(old_state, _new_state):
+	match old_state:
+		states.attack:
+			parent.melee_collider.disabled = true
+		states.hit:
+			parent.player_collider.disabled = false

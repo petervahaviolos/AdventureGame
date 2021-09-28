@@ -558,7 +558,7 @@ states/walk/node = SubResource( 106 )
 states/walk/position = Vector2( 511, 52 )
 transitions = [ "idle", "walk", SubResource( 107 ), "walk", "idle", SubResource( 108 ), "idle", "attack", SubResource( 109 ), "attack", "idle", SubResource( 110 ), "idle", "hit", SubResource( 111 ), "hit", "idle", SubResource( 112 ) ]
 start_node = "idle"
-graph_offset = Vector2( 43, -197 )
+graph_offset = Vector2( -47, -8 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=114]
 
@@ -1091,7 +1091,7 @@ shape = SubResource( 1 )
 [node name="PlayerSprites" type="AnimatedSprite" parent="."]
 frames = SubResource( 86 )
 animation = "idle_down"
-frame = 1
+frame = 3
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 10 )
@@ -1142,7 +1142,6 @@ anims/walk_right = SubResource( 130 )
 anims/walk_up = SubResource( 131 )
 
 [node name="StateLabel" type="Label" parent="."]
-visible = false
 margin_left = -8.0
 margin_top = -32.0
 margin_right = -8.0

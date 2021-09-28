@@ -61,7 +61,7 @@ __meta__ = {
 position = Vector2( 356, 96 )
 
 [node name="PlayerSprites" parent="YSort/Players/Player" index="1"]
-frame = 2
+frame = 4
 
 [node name="Animator" parent="YSort/Players/Player" index="3"]
 parameters/playback = SubResource( 1 )

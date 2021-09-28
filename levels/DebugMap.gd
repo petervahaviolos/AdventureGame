@@ -27,5 +27,5 @@ func _on_ConnectionManager_data_updated(packet):
 		if typeof(packet['data']) == TYPE_DICTIONARY:
 			var player_node = get_node("YSort/Players/" + str(packet['sender']))
 			player_node.global_position = Vector2(packet['data']['x'], packet['data']['y'])
-			player_node.state_machine._enter_state(packet['data']['state'], player_node.state_machine.state)
+			player_node.state_machine.set_state(packet['data']['state'])
 			player_node.input_vector = packet['data']['input_vector']

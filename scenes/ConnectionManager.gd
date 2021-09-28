@@ -1,12 +1,15 @@
 extends Node
 
+signal data_updated(packet)
 
 func _ready():
 	Steam.connect("p2p_session_request", self, "_on_P2P_Session_Request")
 	Steam.connect("p2p_session_connect_fail", self, "_on_P2P_Session_Connect_Fail")
 
-func _physics_process(_delta):
-	read_p2p_packet()
+func _process(_delta):
+	var packet = read_p2p_packet()
+	if packet != null:
+		emit_signal("data_updated", packet)
 
 func read_p2p_packet():
 	var PACKET_SIZE = Steam.getAvailableP2PPacketSize(0)
@@ -16,11 +19,13 @@ func read_p2p_packet():
 		if PACKET.empty():
 			print("[WARNING] Read an empty packet")
 
-		var _PACKET_ID = str(PACKET.steamIDRemote)
+		var _PACKET_ID:int = PACKET.steamIDRemote
 		var _PACKET_CODE = str(PACKET.data[0])
 		var READABLE = bytes2var(PACKET.data.subarray(1, PACKET_SIZE - 1))
 
-		print("[STEAM] Packet: " + str(READABLE))
+		#print("[STEAM] Packet: " + str(READABLE))
+
+		return {"sender": _PACKET_ID, "data": READABLE}
 
 
 func send_p2p_packet(target, packet_data):
@@ -42,7 +47,7 @@ func send_p2p_packet(target, packet_data):
 	else:
 		SEND_RESPONSE = Steam.sendP2PPacket(int(target), PACKET_DATA, SEND_TYPE, CHANNEL)
 
-	print("[STEAM] P2P packet sent successfully? " + str(SEND_RESPONSE))
+	#print("[STEAM] P2P packet sent successfully? " + str(SEND_RESPONSE))
 
 
 func make_p2p_handshake():

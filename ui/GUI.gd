@@ -1,17 +1,17 @@
 extends MarginContainer
 
 var score = 0
-var player = null
 
 onready var score_label = get_node("VBoxContainer/Top/HBoxContainer/Gems/Number")
 onready var health_bar = get_node("VBoxContainer/Bottom/Guage")
+onready var player = get_tree().get_root().get_node("SceneManager").get_node("DebugMap").get_node("YSort").get_node("Players").get_child(0)
 
 
 func _ready():
-	var player_health = $"../../YSort/Player".health
+	var player_health = player.health
 	health_bar.set_value(player_health + 28)
-	get_node("../../YSort/Player").connect("coin_collected", self, "_on_Player_coin_collected")
-	get_node("../../YSort/Player").connect("health_updated", self, "_on_Player_health_updated")
+	player.connect("coin_collected", self, "_on_Player_coin_collected")
+	player.connect("health_updated", self, "_on_Player_health_updated")
 
 
 func _on_Player_coin_collected():

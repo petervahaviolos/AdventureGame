@@ -1,10 +1,9 @@
 extends MarginContainer
 
-var player = null
-
+onready var player = get_tree().get_root().get_node("SceneManager").get_node("DebugMap").get_node("YSort").get_node("Players").get_child(0)
 
 func _ready():
-	player = get_node("../../YSort/Player")
+	pass
 
 
 func _input(event):

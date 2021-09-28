@@ -5,10 +5,11 @@ var IS_OWNED: bool = false
 var STEAM_ID: int = 0
 var STEAM_USERNAME: String = ""
 
-var DATA
+var DATA = {}
 var LOBBY_ID = 0
 var LOBBY_MEMBERS = []
 var LOBBY_INVITE_ARG = false
+var LOBBY_HOST = 0
 
 
 func _ready():

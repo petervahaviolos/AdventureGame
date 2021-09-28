@@ -11,7 +11,7 @@ onready var player_4_panel = $Margin/LobbyParts/Middle/Players/Player4Panel
 onready var lobby_name_label = $Margin/LobbyParts/Top/MarginContainer/MarginContainer/LobbyNameLabel
 
 onready var scene_manager = get_parent()
-onready var connection_manager = scene_manager.get_node("ConnectionManager")
+onready var connection_manager = null
 
 
 func _ready():
@@ -30,6 +30,7 @@ func _ready():
 func create_lobby():
 	if Global.LOBBY_ID == 0:
 		scene_manager.load_scene("ConnectionManager.tscn")
+		connection_manager = scene_manager.get_node("ConnectionManager")
 		Steam.createLobby(lobby_status.Public, 4)
 
 
@@ -57,9 +58,11 @@ func get_lobby_members():
 	var MEMBER_COUNT = Steam.getNumLobbyMembers(Global.LOBBY_ID)
 
 	for member in range(MEMBER_COUNT):
-		var MEMBER_STEAM_ID = Steam.getLobbyMemberByIndex(Global.LOBBY_ID, member)
+		var MEMBER_STEAM_ID: int = Steam.getLobbyMemberByIndex(Global.LOBBY_ID, member)
 		var MEMBER_STEAM_NAME = Steam.getFriendPersonaName(MEMBER_STEAM_ID)
 		add_player(member, MEMBER_STEAM_ID, MEMBER_STEAM_NAME)
+
+	connection_manager.send_p2p_packet("all", "connect")
 
 
 func add_player(player_number, steam_id, steam_name):
@@ -146,7 +149,6 @@ func _on_LeaveButton_pressed():
 
 
 func _on_StartButton_pressed():
-	connection_manager.send_p2p_packet("all", "game_start")
 	scene_manager.load_level("DebugMap.tscn")
 	queue_free()
 

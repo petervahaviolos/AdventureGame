@@ -55,19 +55,21 @@ __meta__ = {
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 352, 96 )
+[node name="Players" type="YSort" parent="YSort"]
 
-[node name="PlayerSprites" parent="YSort/Player" index="1"]
-frame = 2
+[node name="Player" parent="YSort/Players" instance=ExtResource( 1 )]
+position = Vector2( 356, 96 )
 
-[node name="Animator" parent="YSort/Player" index="3"]
+[node name="PlayerSprites" parent="YSort/Players/Player" index="1"]
+frame = 4
+
+[node name="Animator" parent="YSort/Players/Player" index="3"]
 parameters/playback = SubResource( 1 )
 
-[node name="TopLeft" parent="YSort/Player/Camera2D/Limits" index="0"]
+[node name="TopLeft" parent="YSort/Players/Player/Camera2D/Limits" index="0"]
 position = Vector2( 0, 0 )
 
-[node name="BottomRight" parent="YSort/Player/Camera2D/Limits" index="1"]
+[node name="BottomRight" parent="YSort/Players/Player/Camera2D/Limits" index="1"]
 position = Vector2( 592, 288 )
 
 [node name="Houses" type="YSort" parent="YSort"]
@@ -354,5 +356,5 @@ visible = false
 margin_left = -116.0
 margin_right = 116.0
 
-[editable path="YSort/Player"]
-[editable path="YSort/Player/Camera2D"]
+[editable path="YSort/Players/Player"]
+[editable path="YSort/Players/Player/Camera2D"]

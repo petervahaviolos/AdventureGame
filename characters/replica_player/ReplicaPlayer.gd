@@ -26,33 +26,10 @@ var connection_manager = null
 
 func _ready():
 	add_to_group("players")
-	if Global.LOBBY_ID != 0:
-		connection_manager = get_tree().get_root().get_node("SceneManager").get_node("ConnectionManager")
-	else:
-		$UsernameLabel.set_text(Global.STEAM_USERNAME)
 
-#func _physics_process(_delta):
-#	if connection_manager != null:
-#		connection_manager.send_p2p_packet("all", {"x": global_position.x, "y": global_position.y, "state": state_machine.state})
 
 func _on_MeleeArea_body_entered(body):
 	body.take_damage(1)
-
-
-func apply_movement():
-	velocity = move_and_slide(velocity)
-
-
-func handle_move_input():
-	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	input_vector = input_vector.normalized()
-
-	velocity = input_vector * max_speed
-
-	if velocity != Vector2.ZERO:
-		connection_manager.send_p2p_packet("all", {"x": global_position.x, "y": global_position.y, "state": state_machine.state})
-
 
 func update_blend_position(animation_name):
 	animation_tree.set("parameters/" + animation_name + "/blend_position", input_vector)

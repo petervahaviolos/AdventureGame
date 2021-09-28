@@ -1092,6 +1092,7 @@ shape = SubResource( 1 )
 [node name="PlayerSprites" type="AnimatedSprite" parent="."]
 frames = SubResource( 86 )
 animation = "idle_down"
+frame = 1
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 10 )

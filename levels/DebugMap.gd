@@ -24,7 +24,8 @@ func _ready():
 				get_node("YSort/Players/Player/UsernameLabel").set_text(str(player['steam_name']))
 
 func _on_ConnectionManager_data_updated(packet):
-		print(packet)
-		var player_node = get_node("YSort/Players/" + str(packet['sender']))
-		player_node.global_position = Vector2(packet['data']['x'], packet['data']['y'])
-		player_node.state_machine._enter_state(packet['data']['state'], player_node.state_machine.state)
+		if typeof(packet['data']) == TYPE_DICTIONARY:
+			var player_node = get_node("YSort/Players/" + str(packet['sender']))
+			player_node.global_position = Vector2(packet['data']['x'], packet['data']['y'])
+			player_node.state_machine._enter_state(packet['data']['state'], player_node.state_machine.state)
+			player_node.input_vector = packet['data']['input_vector']

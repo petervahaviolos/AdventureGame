@@ -43,21 +43,3 @@ func take_damage(damage):
 	is_hit = true
 	health -= damage
 	emit_signal("health_updated", health)
-
-
-func save():
-	var save_data = {
-		"name": get_name(),
-		"filename": get_filename(),
-		"health": health,
-		"parent": get_parent().get_path(),
-		"position": get_position(),
-		"state": state_machine.state
-	}
-	return save_data
-
-
-func load(data):
-	health = data.get("health")
-	position = data.get("position")
-	state_machine.set_state(data.get("state"))

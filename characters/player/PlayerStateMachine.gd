@@ -8,6 +8,9 @@ func _ready():
 	add_state("hit")
 	call_deferred("set_state", states.idle)
 
+func _send_data():
+	if parent.connection_manager != null:
+		parent.connection_manager.send_p2p_packet("all", {"x": parent.global_position.x, "y": parent.global_position.y, "state": state, "input_vector": parent.input_vector})
 
 func _state_logic(_delta):
 	match state:
@@ -21,7 +24,7 @@ func _state_logic(_delta):
 				parent.update_blend_position("idle")
 				parent.update_blend_position("attack")
 				parent.update_blend_position("hit")
-
+				_send_data()
 
 func _get_transition(_delta):
 	match state:
@@ -52,6 +55,7 @@ func _get_transition(_delta):
 
 
 func _enter_state(new_state, _old_state):
+	_send_data()
 	match new_state:
 		states.idle:
 			parent.get_node("StateLabel").set_text("idle")

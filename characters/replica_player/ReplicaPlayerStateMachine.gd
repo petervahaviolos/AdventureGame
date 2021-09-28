@@ -10,7 +10,11 @@ func _ready():
 
 
 func _state_logic(_delta):
-	pass
+	if parent.input_vector != Vector2.ZERO:
+		parent.update_blend_position("walk")
+		parent.update_blend_position("idle")
+		parent.update_blend_position("attack")
+		parent.update_blend_position("hit")
 
 
 func _get_transition(_delta):

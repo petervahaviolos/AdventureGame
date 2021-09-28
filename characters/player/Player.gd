@@ -31,10 +31,6 @@ func _ready():
 	else:
 		$UsernameLabel.set_text(Global.STEAM_USERNAME)
 
-#func _physics_process(_delta):
-#	if connection_manager != null:
-#		connection_manager.send_p2p_packet("all", {"x": global_position.x, "y": global_position.y, "state": state_machine.state})
-
 func _on_MeleeArea_body_entered(body):
 	body.take_damage(1)
 
@@ -49,9 +45,6 @@ func handle_move_input():
 	input_vector = input_vector.normalized()
 
 	velocity = input_vector * max_speed
-
-	if velocity != Vector2.ZERO:
-		connection_manager.send_p2p_packet("all", {"x": global_position.x, "y": global_position.y, "state": state_machine.state})
 
 
 func update_blend_position(animation_name):

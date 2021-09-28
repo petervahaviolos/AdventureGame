@@ -72,7 +72,7 @@ func _on_P2P_Session_Request(remote_id):
 	var SESSION_ACCEPTED = Steam.acceptP2PSessionWithUser(remote_id)
 	print("[STEAM] P2P session was connected: " + str(SESSION_ACCEPTED))
 
-	make_p2p_handshake()
+	#make_p2p_handshake()
 
 
 func _on_P2P_Session_Connect_Fail(lobby_id, session_error):
